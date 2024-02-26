@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-4 col-12">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <mat-icon fontSet="fa" fontIcon="fa-bars"></mat-icon>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-divider></mat-divider>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item" >
+                          <a class="nav-link me-3 link" href="/#/task/add-task">
+                            <i class="fa fa-plus-circle"></i>
+                            <span class="ms-2">Ajouter une tâche</span>
+                          </a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link me-3 link" href="/#/task/task-calendar">
+                              <i class="fa fa-calendar" ></i>
+                              <span class="ms-2">Calendrier</span>
+                            </a>
+                        </li>
+                    </ul>
+                
+                  </mat-expansion-panel>
+              </mat-accordion>              
+        </div>
+
+        <div class="col-md-7 col-12">
+            <mat-tab-group>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon fontSet="fa" fontIcon="fa-list" class="example-tab-icon"></mat-icon>
+                    Nouveau
+                  </ng-template>
+                  <app-task-list></app-task-list>
+                </mat-tab>
+              
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon fontSet="fa" fontIcon="fa-tasks" class="example-tab-icon"></mat-icon>
+                    En cours
+                  </ng-template>
+                  <app-task-list></app-task-list>
+                </mat-tab>
+              
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon fontSet="fa" fontIcon="fa-check-square" class="example-tab-icon"></mat-icon>
+                    Terminé
+                  </ng-template>
+                  <app-task-list></app-task-list>
+                </mat-tab>
+              </mat-tab-group>
+        </div>
+    </div>
+</div>

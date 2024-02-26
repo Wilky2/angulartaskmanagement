@@ -1,0 +1,54 @@
+<div class="h-100 bg-login-img">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-lg-3 col-10">
+            <form [formGroup]="formGroup" style="margin-top: 50%;" (submit)="onSubmit()">
+                <mat-card class="p-2 mat-elevator-z8">
+                    <mat-card-title class="text-center fw-bold display-1 mt-3">Code de vérification</mat-card-title>
+                    
+                    <ng-container *ngIf="message$ | async as message">
+                        <mat-error class="text-center" *ngIf="hasError$ | async; else noError">
+                            {{message}}
+                        </mat-error>
+                        <ng-template #noError>
+                            <p class="text-success text-center">
+                                {{message}}
+                            </p>
+                        </ng-template>
+                    </ng-container>
+                
+                    <mat-form-field class="mt-3" appearance="fill">
+                        <mat-label>Code de vérification</mat-label>
+                        <input type="text" [formControl]="checkCodeForm" matInput>
+                        <mat-error>Ce champ est requis</mat-error>
+                    </mat-form-field>
+
+                    <div *ngIf="loading$ | async; else action" class="w-100 d-flex mb-3 mt-3 justify-content-center">
+                        <mat-spinner></mat-spinner>
+                    </div>
+
+                    <ng-template #action>
+                        <div  class="row mt-3 justify-content-center">
+                            <button class="col-11 col-md-10" type="submit" mat-flat-button color="primary">
+                                Verifier le code
+                            </button>
+                        </div>
+    
+                        <div  class="row mt-1 justify-content-center">
+                            <p class="text-center">ou</p>
+                        </div>
+    
+                        <div  class="row justify-content-center">
+                            <button class="col-11 col-md-10" type="button" (click)="onResend()" mat-flat-button color="primary">
+                                Renvoyer le code
+                            </button>
+                        </div>
+                    </ng-template>
+                    
+                    
+                </mat-card>
+            </form>
+        </div>
+        
+    </div>
+</div>
+
